@@ -122,8 +122,8 @@ const Home = () => {
                                                 place
                                             </i>
                                         </div>
-                                        <div className={[classes.icon, whichMedia()].join(" ")}>
-                                            <a style={{'height':'100%', 'width':'100%'}} href={whichUrl()}></a>
+                                        <div className={[classes.icon, "spotify"].join(" ")}>
+                                            <a style={{'height':'100%', 'width':'100%'}} href={"www.spotify.com"}></a>
                                         </div>
                                     </div>
                                 </div>}

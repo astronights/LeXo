@@ -45,7 +45,7 @@ const Page = ({children}) => {
 
     useEffect( () => {
         fetchData();
-    }, [homeAddress,fareType ,month, day]);
+    }, [homeAddress,fareType ,month, day, media]);
 
     return (
         <UserProvider
