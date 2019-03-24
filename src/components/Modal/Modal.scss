@@ -1,0 +1,31 @@
+.Modal{
+  position: absolute;
+  width: 80%;
+
+  margin: 0 auto;
+
+  left: 50%;
+  top: -100%;
+
+  transform: translate(-50%, 0);
+  padding: 30px;
+  //height: 300px;
+  background: #000;
+  color: #fff;
+  border-radius: 16px;
+  transition: all 0.7s ease-out;
+
+  &[class*='activeModal']{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .close{
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+  }
+}

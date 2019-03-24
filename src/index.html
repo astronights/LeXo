@@ -1,0 +1,40 @@
+<!-- sourced from https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="manifest" href="manifest.json">
+    <!-- iOS icons -->
+    <link rel="apple-touch-icon" href="images/icons/icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="images/icons/icon-167x167.png">
+    <link rel="apple-touch-startup-image" sizes="1125x2436" href="images/splash/splash-1125x2436.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-starturl" content="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>React Redux PWA</title>
+</head>
+<body>
+<div id="root"></div>
+<noscript>
+    You need to enable JavaScript to run this app.
+</noscript>
+<script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/dist-sw.js')
+            .then(function (reg) {
+                // registration worked
+                console.log('Registration succeeded.');
+            }).catch(function (error) {
+            // registration failed
+            console.log('Registration failed with ' + error);
+        });
+    }
+</script>
+</body>
+</html>
