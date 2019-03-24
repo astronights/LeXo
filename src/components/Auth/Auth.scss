@@ -1,6 +1,23 @@
 .Auth{
   display: flex;
-  justify-content: center;
+  padding: 0;
+  flex-direction: column;
+  height: 100vh;
   align-items: center;
-  padding: 50px;
+  justify-content: space-evenly;
+
+  [class*='googleButton']{
+    width: 220px;
+    justify-content: center;
+  }
+
+
+  img{
+    //margin-bottom: 100px;
+    border-radius: 8px;
+  }
+
+  h1{
+    text-align: center;
+  }
 }

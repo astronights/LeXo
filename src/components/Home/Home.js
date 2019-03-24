@@ -5,6 +5,7 @@ import Modal from '../Modal/Modal';
 import API from "../../utils/API";
 import Navbar from "../UI/Navbar/Navbar";
 import html2canvas from 'html2canvas';
+import Loading from "../UI/Loading/Loading";
 
 const Home = () => {
     const getKey = ({lat:lat1, lng:lng1},{lat:lat2, lng:lng2}) => lat1.toString() + lng1.toString() + lat2.toString() + lng2.toString();
@@ -92,6 +93,13 @@ const Home = () => {
         if(media == "spotify") return classes.spotify
         if(media == "netflix") return classes.netflix
     }
+
+
+    const whichUrl = () => {
+        if(media == "youtube") return "www.youtube.com"
+        if(media == "spotify") return "www.spotify.com"
+        if(media == "netflix") return "www.netflix.com"
+    }
     const details = () => {
         return routesData.map(({details, legs, fares}, index) => {
             return (
@@ -114,7 +122,9 @@ const Home = () => {
                                                 place
                                             </i>
                                         </div>
-                                        <div className={[classes.icon, whichMedia()].join(" ")}></div>
+                                        <div className={[classes.icon, whichMedia()].join(" ")}>
+                                            <a style={{'height':'100%', 'width':'100%'}} href={whichUrl()}></a>
+                                        </div>
                                     </div>
                                 </div>}
                                 <div
@@ -160,6 +170,9 @@ const Home = () => {
 
             <div>
                 <div className={classes.home}>
+
+                    {(!routesData)  && <Loading/>}
+
                     <div className={classes.totalCash}>{`$${totalMoney()/100}`}</div>
                     <i className="material-icons">
                         home

@@ -3,6 +3,7 @@ import GoogleLogin from 'react-google-login';
 import classes from './Auth.scss';
 import {Redirect} from 'react-router-dom';
 import Loading from '../UI/Loading/Loading';
+import CD from '../../assets/img/cd.gif';
 
 const Auth = () => {
 
@@ -27,14 +28,23 @@ const Auth = () => {
 
             {loading ? <Loading /> : null}
 
-            {redirect ? <Redirect to={{pathname: '/home'}} /> : null}
+
+            {redirect ? <Redirect to={{pathname: '/chatbot'}} /> : null}
             {/* PLEASECHANGE redirect to /chatbot*/}
 
+            <div>
+                <img src={CD} alt=""/>
+                <h1>Carpe Diem</h1>
+            </div>
+
+
+
             <GoogleLogin
-                clientId="932926853812-q72rn1t0a3fo3lrufnmqthshsv3e56vu.apps.googleusercontent.com"
+                clientId="932926853812-euoe6c5uapeb0mh5uu6n8gas6rb4ub5r.apps.googleusercontent.com"
                 buttonText="LOGIN"
                 scope="https://www.googleapis.com/auth/calendar"
-                // accessType="offline"
+                autoLoad={false}
+                className={"googleButton"}
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
             />
