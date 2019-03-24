@@ -6,6 +6,9 @@ import API from "../../utils/API";
 import Navbar from "../UI/Navbar/Navbar";
 import html2canvas from 'html2canvas';
 import Loading from "../UI/Loading/Loading";
+import spotifyImg from '../../assets/img/spotify.png';
+import netflixImg from '../../assets/img/netflix.svg';
+import youtubeImg from '../../assets/img/youtube.svg';
 
 const Home = () => {
     const getKey = ({lat:lat1, lng:lng1},{lat:lat2, lng:lng2}) => lat1.toString() + lng1.toString() + lat2.toString() + lng2.toString();
@@ -16,11 +19,11 @@ const Home = () => {
         routesData.forEach(({details, legs}, index) => {
             let key = getKey(legs.start_location, legs.end_location);
             obj[key] = (
-                <div className={classes.routeModalData}>
+                <div key={index} className={classes.routeModalData}>
                     {
                         legs.steps.map((s, sIndex) => {
                             return (
-                                <div className={classes.step}>
+                                <div key={sIndex} className={classes.step}>
                                     <p><i
                                         className="material-icons">{s.travel_mode == "WALKING" ? "directions_walk" : "directions_transit"}</i>
                                     </p>
@@ -65,8 +68,8 @@ const Home = () => {
 
         const placesData = await API.get(`/places?lat=${lat.toString()}&lon=${lon.toString()}`)
         // console.log(await placesData.data.map(e => {type: e.type}))
-        const placesElem = await placesData.data.slice(0,6).map(e => (
-                        <div className={classes.placeRecom}>
+        const placesElem = await placesData.data.slice(0,6).map((e, index) => (
+                        <div key={index} className={classes.placeRecom}>
                              <p><i className="material-icons">{getTypeOfPlace(e.type)}</i></p>
                              <p className={classes.nameOfInterimPlace}>{e.name}</p>
                         </div>
@@ -89,13 +92,15 @@ const Home = () => {
         document.getElementById("modal").style.top=`calc(${window.pageYOffset}px + 50%)`;
     }
     const whichMedia = () => {
-        if(media == "youtube") return classes.youtube
-        if(media == "spotify") return classes.spotify
-        if(media == "netflix") return classes.netflix
+        if(media == "youtube") return youtubeImg
+        if(media == "spotify") return spotifyImg
+        if(media == "netflix") return netflixImg
+        return youtubeImg
     }
 
 
     const whichUrl = () => {
+        console.log("media: ", media)
         if(media == "youtube") return "www.youtube.com"
         if(media == "spotify") return "www.spotify.com"
         if(media == "netflix") return "www.netflix.com"
@@ -103,7 +108,7 @@ const Home = () => {
     const details = () => {
         return routesData.map(({details, legs, fares}, index) => {
             return (
-                <div>
+                <div key={index}>
                     <div className={classes.data} key={index}>
                         <div className={classes.travelSection}>
                             <div className={[classes.blank, classes.section].join(" ")}>
@@ -122,8 +127,10 @@ const Home = () => {
                                                 place
                                             </i>
                                         </div>
-                                        <div className={[classes.icon, "spotify"].join(" ")}>
-                                            <a style={{'height':'100%', 'width':'100%'}} href={"www.spotify.com"}></a>
+                                        <div style={{'background':'transparent', 'box-shadow':'none'}} className={[classes.icon].join(" ")}>
+                                            <a target={"_blank"} style={{'height':'100%', 'width':'100%'}} href={whichUrl()}>
+                                                <img style={{'width':'50px', 'height':'50px'}} src={whichMedia()} alt=""/>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>}

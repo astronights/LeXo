@@ -18,7 +18,8 @@ export const steps = [
     {
         id: "3",
         message: "Hey, {previousValue}!",
-        trigger: "4"
+        trigger: "4",
+        // end: true
     },
     {
         id: "4",

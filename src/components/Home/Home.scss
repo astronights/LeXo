@@ -51,9 +51,10 @@
 
     .placeName{
       padding: 14px;
-      background: #da4749;
+      background: #463F3A;
       color: #fff;
       flex: 2;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.19), 0 3px 3px rgba(0,0,0,0.23);
 
     }
 
@@ -66,10 +67,8 @@
   }
 
   .home {
-    margin: 20px auto;
-
-    //max-width: 50px;
-    width: 90%;
+    margin: 40px 0;
+    width: 100%;
 
     margin-bottom: 0px;
     display: flex;
@@ -84,11 +83,13 @@
 
     .totalCash{
       flex: 1;
+      font-weight: bold;
+      font-size: 20px;
     }
 
     i{
       color: white;
-      background: #177ff2;
+      background: #DA4749;
       max-width: 50px;
       height: 50px;
       width: 50px;
@@ -138,6 +139,7 @@
     }
 
     %circle-icon{
+      box-shadow: 0 5px 10px rgba(0,0,0,0.25), 0 2px 1px rgba(0,0,0,0.22);
       max-width: 50px;
       width: 50px;
       height: 50px;
@@ -159,7 +161,7 @@
       margin-bottom: $size2;
       position: relative;
       &:after{
-        display: none !important;
+        //display: none !important;
       }
 
       .extendedMenu{
@@ -211,6 +213,12 @@
             background: url('../../assets/img/spotify.png');
             background-size: contain;
           }
+
+          .youtube{
+            background: red;
+            background: url('../../assets/img/youtube.png');
+            background-size: contain;
+          }
         }
       }
 
@@ -233,7 +241,7 @@
 
     .SMRT {
       @extend %circle-icon;
-      background: green;
+      background: #177FF2;
     }
 
     .blank {
