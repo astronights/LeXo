@@ -26,7 +26,7 @@ const MainMenu = () => {
             <div className={classes.menuItem}>
                 <Link to={'/add'}>
                     <div className={[classes.addImg, classes.Img].join(" ")}></div>
-                    <p>Add question</p>
+                    <p>Add word</p>
                 </Link>
             </div>
 

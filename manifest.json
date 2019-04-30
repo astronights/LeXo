@@ -2,7 +2,7 @@
   "name": "LeXo",
   "short_name": "LeXo",
   "theme_color": "#2b2b2b",
-  "background_color": "#2b2b2b",
+  "background_color": "#ffffff",
   "display": "standalone",
   "orientation": "portrait",
   "Scope": "/",
