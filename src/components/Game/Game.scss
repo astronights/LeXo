@@ -39,6 +39,7 @@
     width: 300px;
     display: flex;
     align-items: center;
+    user-select: none !important;
     .inputLang{
       display: flex;
       justify-content: center;
