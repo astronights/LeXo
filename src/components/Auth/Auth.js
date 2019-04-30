@@ -56,7 +56,7 @@ const Auth = () => {
 
             <div onClick={() => {setLoading(true)}}>
                 <GoogleLogin
-                    clientId="932926853812-euoe6c5uapeb0mh5uu6n8gas6rb4ub5r.apps.googleusercontent.com"
+                    clientId="624670833433-sr10o0a2pgqbnd1rdmttikg9etij71us.apps.googleusercontent.com"
                     buttonText="LOGIN"
                     scope="https://www.googleapis.com/auth/calendar"
                     autoLoad={false}
