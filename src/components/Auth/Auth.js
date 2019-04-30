@@ -58,7 +58,7 @@ const Auth = () => {
                 <GoogleLogin
                     clientId="624670833433-sr10o0a2pgqbnd1rdmttikg9etij71us.apps.googleusercontent.com"
                     buttonText="LOGIN"
-                    scope="https://www.googleapis.com/auth/calendar"
+                    scope=""
                     autoLoad={false}
                     accessType="offline"
                     className={"googleButton"}
