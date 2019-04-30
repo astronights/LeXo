@@ -65,6 +65,6 @@ module.exports = {
         //   swSrc: './src/src-sw.js',
         //   swDest: 'dist-sw.js'
         // }),
-        new CopyWebpackPlugin(['./manifest.json', './app-images', './favicon.ico'])
+        new CopyWebpackPlugin(['./manifest.json', './app-images', './favicon.ico', './_redirects'])
     ]
 }
