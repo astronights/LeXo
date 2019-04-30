@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const cleanPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const {InjectManifest} = require('workbox-webpack-plugin');
+
 module.exports = {
     entry: './src/index.js',
     output: {
@@ -61,10 +63,10 @@ module.exports = {
             inject: true,
             template: './src/index.html'
         }),
-        // new InjectManifest({
-        //   swSrc: './src/src-sw.js',
-        //   swDest: 'dist-sw.js'
-        // }),
+        new InjectManifest({
+          swSrc: './src/src-sw.js',
+          swDest: 'dist-sw.js'
+        }),
         new CopyWebpackPlugin(['./manifest.json', './app-images', './favicon.ico', './_redirects'])
     ]
 }
