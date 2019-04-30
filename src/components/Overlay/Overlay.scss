@@ -1,0 +1,60 @@
+
+.Overlay{
+  width: 100vw;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -100%;
+  visibility: hidden;
+  height: auto;
+  min-height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  color: white;
+  transition: all 0.3s ease-out;
+
+
+
+
+  h2{
+    width: 100%;
+    text-align: center;
+  }
+
+  p{
+    width: 50%;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-align: center;
+
+
+  }
+  .highlight{
+    color: yellow;
+  }
+
+
+  .addLang{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    p{
+      width: 100%;
+    }
+
+    input{
+      width: 200px;
+      padding: 8px 16px;
+      font-size: 17px;
+    }
+  }
+}
+.activeOverlay{
+  opacity: 1 ;
+  visibility: visible;
+  left: 0;
+
+}

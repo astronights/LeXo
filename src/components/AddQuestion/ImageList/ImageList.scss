@@ -1,0 +1,13 @@
+.ImageList{
+  .buttons{
+    display: flex;
+    justify-content: space-evenly;
+    .button{
+      display: flex;
+      align-items: center;
+      i{
+        font-size: 50px;
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export default axios.create({
-    baseURL: "https://future-sovereign.glitch.me/",
+    baseURL: "https://quirky-locket.glitch.me/",
     responseType: "json"
 });
