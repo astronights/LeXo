@@ -81,9 +81,18 @@ module.exports = function(app, db) {
     function newword(lang1, lang2){
       
       return new Promise((res, rej) => {
-        
         let word = Sentencer.make("{{ noun }}");
-          translate(word, {
+        let flag = true
+        while(flag){
+          console.log(word);
+          return Word.findOne({word: word}, async function(err, doc){
+            console.log('reached here')
+            if(doc){
+              console.log('reached here 1')
+              word = await Sentencer.make("{{ noun }}");
+            }
+            else{
+              translate(word, {
               from: 'en',
               to: lang1
           }).then(word1 => {
@@ -125,6 +134,13 @@ module.exports = function(app, db) {
                   rej(err);
               });
           });
+              flag = false;
+            }
+              console.log('reached here 345')
+          });
+        }
+        console.log(word);
+          
         
       });
       
@@ -155,7 +171,7 @@ module.exports = function(app, db) {
       let toadd = new Word({
         url: req.body.url,
         word: req.body.word,
-        count: 0,
+        count: Word.count(),
         [req.body.lang.toLowerCase().slice(0,2)]: [{
           word: req.body.tran,
           count: 1,
@@ -219,7 +235,7 @@ module.exports = function(app, db) {
         Word.findOne({count: user.words_visited}, async function(err2, wordlist){
           if(err){
             console.log("GG ho gaya na");
-          }else if(wordlist.length == 0){
+          }else if(!wordlist || wordlist.length == 0){
             console.log("sdfsgs");
             return res.send(await newword(req.query.lang1, req.query.lang2));
           }else{
